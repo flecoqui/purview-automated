@@ -1686,7 +1686,7 @@ if [ "${ACTION}" = "deploy-public-purview" ] ; then
     fi
     setAzureResourceNames ${AZURE_ENVIRONMENT} "${VISIBILITY}" "${AZURE_SUFFIX}" "${RESOURCE_GROUP_NAME}"
 
-    CLIENT_IP_ADDRESS=$(curl -s https://ipinfo.io/ip)
+    CLIENT_IP_ADDRESS=$(curl -s https://ifconfig.me)
     OBJECT_ID=$(getCurrentObjectId)
     OBJECT_TYPE=$(getCurrentObjectType)
     printProgress "Deploy public Purview in resource group '${RESOURCE_GROUP_NAME}'"
@@ -1732,7 +1732,7 @@ if [ "${ACTION}" = "deploy-public-datasource" ] ; then
         PURVIEW_RESOURCE_GROUP_NAME=$(getPurviewResourceGroupName "${AZURE_ENVIRONMENT}" "${VISIBILITY}" "${AZURE_SUFFIX}")
         PURVIEW_PRINCIPAL_ID=$(az purview account show -n ${AZURE_PURVIEW_ACCOUNT_NAME} -g ${PURVIEW_RESOURCE_GROUP_NAME} --query identity.principalId -o tsv)
     fi
-    CLIENT_IP_ADDRESS=$(curl -s https://ipinfo.io/ip)
+    CLIENT_IP_ADDRESS=$(curl -s https://ifconfig.me)
     OBJECT_ID=$(getCurrentObjectId)
     OBJECT_TYPE=$(getCurrentObjectType)
 
@@ -2008,7 +2008,7 @@ if [ "${ACTION}" = "deploy-private-datasource" ] ; then
         PURVIEW_RESOURCE_GROUP_NAME=$(getPurviewResourceGroupName "${AZURE_ENVIRONMENT}" "${VISIBILITY}""${AZURE_SUFFIX}")
         PURVIEW_PRINCIPAL_ID=$(az purview account show -n ${AZURE_PURVIEW_ACCOUNT_NAME} -g ${PURVIEW_RESOURCE_GROUP_NAME} --query identity.principalId -o tsv)
     fi
-    CLIENT_IP_ADDRESS=$(curl -s https://ipinfo.io/ip)
+    CLIENT_IP_ADDRESS=$(curl -s https://ifconfig.me)
     OBJECT_ID=$(getCurrentObjectId)
     OBJECT_TYPE=$(getCurrentObjectType)
 
